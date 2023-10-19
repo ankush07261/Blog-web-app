@@ -4,6 +4,7 @@ const ejs = require("ejs");
 const app = express();
 const articleRouter = require("./routes/articles");
 const mongoose = require("mongoose");
+const methodOverride = require('method-override');
 
 //connecting mongoose
 mongoose.connect('mongodb://127.0.0.1:27017/BlogDB',{
@@ -14,8 +15,8 @@ mongoose.connect('mongodb://127.0.0.1:27017/BlogDB',{
 });
 
 app.set('view engine', 'ejs')
-
 app.use(express.urlencoded({extended: false}))
+app.use(methodOverride('_method'))
 
 app.get('/', (req, res) => {
     let articles = [{
