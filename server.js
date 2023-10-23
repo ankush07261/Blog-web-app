@@ -1,3 +1,4 @@
+//DECLARATIONS
 const express = require("express");
 const bodyParser = require("body-parser");
 const ejs = require("ejs");
@@ -18,6 +19,7 @@ app.set('view engine', 'ejs')
 app.use(express.urlencoded({extended: false}))
 app.use(methodOverride('_method'))
 
+// POST/GET methods
 app.get('/', (req, res) => {
     let articles = [{
         title: "test",
