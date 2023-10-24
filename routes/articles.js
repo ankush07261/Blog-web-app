@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router()
 const Article = require('./../models/article')
 
+//New article route
 router.get('/new', function (req, res) {
     res.render('articles/new',{article: new Article() })
 })
@@ -28,8 +29,9 @@ router.post('/', async (req, res) => {
     }
 });
 
+// DELETE route
 router.delete('/:id', async (req, res) => {
-    await Article.findByIdAndDelete(req.params.id)
+    await Article.findByIdAndDelete()
     res.redirect('/')
 })
 
