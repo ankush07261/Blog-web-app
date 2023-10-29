@@ -34,6 +34,17 @@ app.get('/', (req, res) => {
     
 })
 
+app.post("/delete", async(req, res) =>{
+    const deleteArticle = req.body.deleteThis;
+    try {
+        await Article.findByIdAndRemove(deleteArticle);
+        res.redirect("/");
+        console.log("Article "+deleteArticle+" deleted successfully")
+    } catch (err) {
+        console.log(err);
+    }  
+})
+
 app.listen(5000, function () {
     console.log("Server started on port 5000");
 });
