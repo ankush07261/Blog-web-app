@@ -8,7 +8,7 @@ const mongoose = require("mongoose");
 const methodOverride = require('method-override');
 
 //connecting mongoose
-mongoose.connect('mongodb://127.0.0.1:27017/BlogDB',{
+mongoose.connect('<mongodb_url>',{
     useNewUrlParser: true,
     useUnifiedTopology: true
 }).then(() => {
